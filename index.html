@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cee Loo Restaurant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        playfair: ['Playfair Display', 'serif'],
+                        roboto: ['Roboto', 'sans-serif'],
+                    },
+                    keyframes: {
+                        'fade-in-down': {
+                            '0%': {
+                                opacity: '0',
+                                transform: 'translateY(-20px)'
+                            },
+                            '100%': {
+                                opacity: '1',
+                                transform: 'translateY(0)'
+                            },
+                        },
+                        'fade-in-up': {
+                            '0%': {
+                                opacity: '0',
+                                transform: 'translateY(20px)'
+                            },
+                            '100%': {
+                                opacity: '1',
+                                transform: 'translateY(0)'
+                            },
+                        }
+                    },
+                    animation: {
+                        'fade-in-down': 'fade-in-down 1s ease-out',
+                        'fade-in-up': 'fade-in-up 1s ease-out',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .hover-float:hover {
+            animation: float 2s ease-in-out infinite;
+        }
+        .scale-on-hover {
+            transition: transform 0.3s ease;
+        }
+        .scale-on-hover:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="font-roboto">
+    <div class="relative min-h-screen">
+        <!-- Hero Section -->
+        <div class="relative h-screen">
+            <!-- Background Image with Overlay -->
+            <div class="absolute inset-0">
+                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200" 
+                     alt="Restaurant Background" 
+                     class="w-full h-full object-cover transform scale-105 transition-transform duration-[3000ms]"
+                     onload="this.style.transform='scale(1)'">
+                <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+            </div>
+            
+            <!-- Hero Content -->
+            <div class="relative flex flex-col items-center justify-center h-full text-white text-center px-4">
+                <h1 class="font-playfair text-5xl md:text-7xl font-bold mb-4 tracking-wider uppercase animate-fade-in-down">
+                    Cee Loo
+                </h1>
+                <p class="text-xl md:text-2xl font-light animate-fade-in-up opacity-0" style="animation-delay: 500ms; animation-fill-mode: forwards;">
+                    Experience Exceptional Dining
+                </p>
+            </div>
+        </div>
+
+        <!-- Contact Form Section -->
+        <div class="bg-gray-50 py-16 px-4 transform transition-all duration-700 hover:bg-gray-100">
+            <div class="max-w-md mx-auto text-center">
+                <h2 class="font-playfair text-3xl md:text-4xl font-bold mb-4 text-gray-800 hover-float">
+                    Stay Connected
+                </h2>
+                <p class="text-gray-600 mb-8">
+                    Join our mailing list for special offers and updates
+                </p>
+                
+                <form id="signup-form" class="space-y-4">
+                    <div class="transform transition-all duration-300 hover:-translate-y-1">
+                        <input type="text" 
+                               id="name" 
+                               name="name" 
+                               placeholder="Your Name" 
+                               required
+                               class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-gray-500 focus:ring-2 focus:ring-gray-200 outline-none transition-all duration-300 hover:shadow-lg">
+                    </div>
+                    <div class="transform transition-all duration-300 hover:-translate-y-1">
+                        <input type="email" 
+                               id="email" 
+                               name="email" 
+                               placeholder="Your Email" 
+                               required
+                               class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-gray-500 focus:ring-2 focus:ring-gray-200 outline-none transition-all duration-300 hover:shadow-lg">
+                    </div>
+                    <button type="submit" 
+                            class="w-full bg-gray-800 text-white py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 hover:bg-gray-700 hover:shadow-xl active:scale-95">
+                        Subscribe
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="bg-gray-800 text-white py-8 text-center">
+            <p class="opacity-100 transition-all duration-700">
+                &copy; 2024 Cee Loo Restaurant. All rights reserved.
+            </p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
